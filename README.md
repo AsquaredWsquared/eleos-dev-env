@@ -39,3 +39,4 @@ To clone this repository using HTTPS, use:
 
 > git clone https://github.com/AsquaredWsquared/eleos-dev-env.git
 
+Now you have a local copy of the repository, go into your terminal (or on Windows open Git Bash) and run the postgres.sh:
