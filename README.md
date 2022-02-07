@@ -41,7 +41,7 @@ To clone this repository using HTTPS, use:
 
 Now you have a local copy of the repository, go into your terminal and run the postgresql12_odoo.sh script:
 
-> ./postgresql12_odoo.sh
+> ./pg12.sh
 
 This script will take a few minutes to go off and install a Docker image from the Docker Hub and then start up a Docker container which has PostgreSQL 12 running in it.
 The script creates a super secure password for your local dev PostgreSQL database: 
