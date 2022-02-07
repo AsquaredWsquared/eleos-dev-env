@@ -1,6 +1,6 @@
 # This is entirely based on official odoo Dockerfile: https://github.com/odoo/docker/blob/master/15.0/Dockerfile
 # and the Junari odoo 14 Dockerfile https://github.com/junariltd/junari-odoo-docker/blob/14.0/Dockerfile
-# I've done nothing except copy and paste.
+# I've done nothing except copy and paste and add in a couple of packages to fix a pyldap error.
 FROM debian:buster-slim
 
 SHELL ["/bin/bash", "-xo", "pipefail", "-c"]
