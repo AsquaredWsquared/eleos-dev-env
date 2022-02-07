@@ -99,5 +99,6 @@ ENV ODOO_RC /etc/odoo/odoo.conf
 ENV PATH="/opt/odoo/scripts:${PATH}"
 
 EXPOSE 8069
+
 ENTRYPOINT ["/opt/odoo/entrypoint.sh"]
 CMD ["odoo"]
