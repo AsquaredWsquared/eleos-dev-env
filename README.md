@@ -86,3 +86,7 @@ In Docker Desktop you should now have two Docker Images: postgresql and odoo15 a
 Step 3 Connect to our sta-odoo-dev Container with Visual Studio Code remote extension and do some coding!!
 
 Enough of the scripting shenanigans! We can now try and hook into our shiny new container with Visual Studio Code and break stuff.
+
+To use Visual Studio Code Remote Development with docker containers you need to install the “Remote - Containers” extension.
+
+images/Capture1.JPG
