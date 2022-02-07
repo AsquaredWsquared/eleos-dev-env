@@ -49,6 +49,15 @@ This creates a super secure password for your local dev PostgreSQL database:
 
 > mysecretpassword 
 
-so probably not a good idea to use this in production!
+so probably not a good idea to use this in production.
 
+You can check the command has worked by opening up Docker Desktop and you should have a Postgres Image and in Containers/Apps there should be a running instance of PostgreSQL called <random_name> postgres:12 PORT: 5432. There is a CLI button which you can use to connect to your instance and execute commands, for example:
+
+> psql -h localhost -p 5432 -U postgres -W
+
+You will then be prompted to enter your password: mysecretpassword and given a postgres prompt where you can execute commands
+
+> postgres=#
+
+If you type \l you will be given a list of database.
 
