@@ -61,6 +61,12 @@ You will then be prompted to enter your password: mysecretpassword and given a p
 
 For example, if you type \l you will be given a list of databases or \du will list users.
 
+We will need to create a role for Odoo to connect and create a database in PostgreSQL. Execute the following command from the postgres prompt:
+
+> postgres=# CREATE ROLE odoo CREATEDB LOGIN PASSWORD 'odoo';
+
 Step 2 Odoo Container creation
 
-We now need to create an Odoo Image and then an Odoo Container to connect to our PostgreSQL container.
+We now need to create an Odoo Image and then an Odoo Container to connect to our PostgreSQL container using the odoo role we created in Step 1.
+
+
