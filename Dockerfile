@@ -74,8 +74,9 @@ WORKDIR /opt/odoo
 
 # Install Odoo and dependencies from source and check out specific revision
 USER odoo
-RUN git clone --branch=$ODOO_VERSION --depth=1000 https://github.com/odoo/odoo.git odoo
-RUN cd odoo && git reset --hard $ODOO_REVISION
+RUN git clone --branch=15.0 --depth=1000 https://github.com/odoo/odoo.git odoo
+#RUN cd odoo && git reset --hard $ODOO_REVISION
+RUN cd odoo
 
 USER root
 RUN pip3 install pip --upgrade
