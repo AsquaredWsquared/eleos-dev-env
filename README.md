@@ -41,9 +41,9 @@ To clone this repository using HTTPS, use:
 
 Now you have a local copy of the repository, go into your terminal:
 
-> docker run -it --rm -e POSTGRES_PASSWORD=mysecretpassword -v postgres12-data:/var/lib/postgresql/data -p 5432:5432 postgres:12
+> docker run -it --rm -e POSTGRES_PASSWORD=mysecretpassword -v postgres12-data:/var/lib/postgresql/data -p 5432:5432 postgres:13
 
-This will take a few minutes to go off and install a Docker image from the Docker Hub and then start up a Docker container which has PostgreSQL 12 running in it.
+This will take a few minutes to go off and install a Docker image from the Docker Hub and then start up a Docker container which has PostgreSQL 13 running in it.
 
 This creates a super secure password for your local dev PostgreSQL database:
 
@@ -51,7 +51,7 @@ This creates a super secure password for your local dev PostgreSQL database:
 
 so probably not a good idea to use this in production.
 
-You can check the command has worked by opening up Docker Desktop and you should have a Postgres Image and in Containers/Apps there should be a running instance of PostgreSQL called <random_name> postgres:12 PORT: 5432. There is a CLI button which you can use to connect to your instance and execute commands, for example:
+You can check the command has worked by opening up Docker Desktop and you should have a Postgres Image and in Containers/Apps there should be a running instance of PostgreSQL called <random_name> postgres:13 PORT: 5432. There is a CLI button which you can use to connect to your instance and execute commands, for example:
 
 > psql -h localhost -p 5432 -U postgres -W
 
