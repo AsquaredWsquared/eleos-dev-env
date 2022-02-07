@@ -39,7 +39,7 @@ To clone this repository using HTTPS, use:
 
 > git clone https://github.com/AsquaredWsquared/eleos-dev-env.git
 
-Now you have a local copy of the repository, go into your terminal and run the postgresql12_odoo.sh script:
+Now you have a local copy of the repository, go into your terminal and run the pg12.sh script:
 
 > ./pg12.sh
 
