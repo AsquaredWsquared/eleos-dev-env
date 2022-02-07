@@ -39,4 +39,11 @@ To clone this repository using HTTPS, use:
 
 > git clone https://github.com/AsquaredWsquared/eleos-dev-env.git
 
-Now you have a local copy of the repository, go into your terminal and run the postgresql12_odoo.sh:
+Now you have a local copy of the repository, go into your terminal and run the postgresql12_odoo.sh script:
+
+> ./postgresql12_odoo.sh
+
+This script will take a few minutes to go off and install a Docker image from the Docker Hub and then start up a Docker container which has PostgreSQL 12 running in it.
+The script creates a super secure password for your local dev PostgreSQL database: 
+mysecretpassword 
+so probably not a good idea to use this in production!
