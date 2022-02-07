@@ -51,11 +51,11 @@ This creates a super secure password for your local dev PostgreSQL database:
 
 so probably not a good idea to use this in production.
 
-You can check the command has worked by opening up Docker Desktop and you should have a Postgres Image and in Containers/Apps there should be a running instance of PostgreSQL called <random_name> postgres:13 PORT: 5432. There is a CLI button which you can use to connect to your instance and execute commands, for example:
+You can check the command has worked by opening up Docker Desktop and you should have a Postgres Image and in Containers/Apps there should be a running instance of PostgreSQL called <random_name> postgres:13 PORT: 5432. There is a CLI button which you can use to connect to your instance and execute commands, for example, enter:
 
 > psql -h localhost -p 5432 -U postgres -W
 
-You will then be prompted to enter your password: mysecretpassword and given a postgres prompt where you can execute commands
+You will then be prompted to enter your password: mysecretpassword and given a postgres prompt where you can execute commands.
 
 > postgres=#
 
@@ -65,16 +65,24 @@ We will need to create a role for Odoo to connect and create a database in Postg
 
 > postgres=# CREATE ROLE odoo CREATEDB LOGIN PASSWORD 'odoo';
 
+We next need to create a database:
+
+> postgres=# CREATE DATABASE odoo15 OWNER odoo ENCODING UTF8;
+
 Step 2 Odoo Container creation
 
-We now need to create an Odoo Image and then an Odoo Container to connect to our PostgreSQL container using the odoo role we created in Step 1.
+We now need to create an Odoo Image and then an Odoo Container to connect to our PostgreSQL Container using the odoo role we created in Step 1.
 
-Using Visual Studio Code we can build a local Docker image with the following command:
+Using Visual Studio Code we can build a local Docker image with the following command in the terminal:
 
 > docker build . -t odoo15
 
-This will then take a while to build the image (probably best to go and make a cup of coffee while you wait) Once the image is built we need to tell Docker that we want to create a container based on our image. To do this use the following command:
+This will take a while to build the image the first time (probably best to go and make a cup of coffee while you wait) Once the image is built we need to tell Docker that we want to create a container based on our image. To do this use the following command:
 
 > docker run --rm -it --name=sta-odoo-dev -v sta-odoo-data:/opt/odoo/data -v sta-odoo-vscode:/opt/odoo/.vscode -v sta-odoo-custom-addons:/opt/odoo/custom_addons -v sta-odoo-home:/home/odoo -p 8069:8069 --env-file=odoo.env odoo15 bash
 
-In Docker Desktop you should now have two Docker Images: postgresql and odoo15 and two running Docker Containers: sta-odoo-dev and <random_name>
+In Docker Desktop you should now have two Docker Images: postgresql and odoo15 and two running Docker Containers: sta-odoo-dev and <random_name>. 
+
+Step 3 Connect to our sta-odoo-dev Container with Visual Studio Code remote extension and do some coding!!
+
+Enough of the scripting shenanigans! We can now try and hook into our shiny new container with Visual Studio Code and break stuff.
