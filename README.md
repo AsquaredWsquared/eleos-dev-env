@@ -89,4 +89,4 @@ Enough of the scripting shenanigans! We can now try and hook into our shiny new 
 
 To use Visual Studio Code Remote Development with docker containers you need to install the “Remote - Containers” extension.
 
-<img src=https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture1.JPG?raw=true>
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture1.JPG">
