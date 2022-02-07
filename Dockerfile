@@ -70,7 +70,7 @@ RUN apt-get install -y nodejs
 # Create odoo user and directories and set permissions
 RUN useradd -ms /bin/bash odoo \
     && mkdir /etc/odoo /opt/odoo /opt/odoo/scripts \
-    && chown -R odoo:odoo /etc/odoo /opt/odoo
+    && chown -R odoo:odoo /etc/odoo /opt/odoo /opt/odoo/scripts
 
 WORKDIR /opt/odoo
 

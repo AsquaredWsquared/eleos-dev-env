@@ -69,4 +69,12 @@ Step 2 Odoo Container creation
 
 We now need to create an Odoo Image and then an Odoo Container to connect to our PostgreSQL container using the odoo role we created in Step 1.
 
+Using Visual Studio Code we can build a local Docker image with the following command:
+
+> docker build . -t odoo15
+
+This will then take a while to build the image (probably best to go and make a cup of coffee while you wait) Once the image is built we need to tell Docker that we want to create a container based on our image. To do this use the following command:
+
+> docker run --rm -it --name=sta-odoo-dev -v sta-odoo-data:/opt/odoo/data -v sta-odoo-vscode:/opt/odoo/.vscode -v sta-odoo-custom-addons:/opt/odoo/custom_addons -v sta-odoo-home:/home/odoo -p 8069:8069 --env-file=odoo.env odoo15 bash
+
 
