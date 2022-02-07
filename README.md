@@ -59,5 +59,8 @@ You will then be prompted to enter your password: mysecretpassword and given a p
 
 > postgres=#
 
-If you type \l you will be given a list of database.
+For example, if you type \l you will be given a list of databases or \du will list users.
 
+Step 2 Odoo Container creation
+
+We now need to create an Odoo Image and then an Odoo Container to connect to our PostgreSQL container.
