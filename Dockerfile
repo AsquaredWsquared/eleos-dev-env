@@ -21,6 +21,8 @@ RUN apt-get update && \
         fonts-noto-cjk \
         gnupg \
         libssl-dev \
+        libsasl2-dev \
+        libldap2-dev \        
         node-less \
         npm \
         python3-num2words \
