@@ -4,17 +4,17 @@ Welcome to the Scottish Tech Army Odoo Development environment installation guid
 
 Odoo is an open source Enterprise Resource Planning (ERP) system written in Python which relies on a PostgreSQL backend to store data.
 
-The source code for Odoo can be found here but by the end of the guide you should have a local copy that you can rummage around in.
+The source code for Odoo can be found here but by the end of the guide you should have a local copy in a Docker Container that you can rummage around in.
 https://github.com/odoo/odoo
 
-The installation steps that follow are intended for developers who are new to Odoo, Docker and Python and want a local development environment to play around with Odoo and PostgreSQL. 
+**The installation steps that follow are intended for developers who are new to Odoo, Docker and Python and want a local development environment to play around with Odoo and PostgreSQL.** 
 
-If you are already an Odoo/Docker/Python ninja then this guide isn't aimed at you and I've got a couple of questions ;-)
+*If you are already an Odoo/Docker/Python/Git ninja then this guide isn't aimed at you and I've got a couple of questions ;-)*
 
 The process is going to be broken down into three main steps:
 
-1. Create a local PostgreSQL Docker container from a Docker image and connect to it.
-2. Create a separate local Odoo Docker container from a Docker image that has the Odoo source code in it.
+1. Create a local PostgreSQL Docker Container from a Docker Image and connect to it using the Docker Desktop CLI.
+2. Create a separate local Odoo Docker Container from a Docker Image that has the Odoo source code in it.
 3. Connect to the container we created in step 2 using Visual Studio Code and create our first custom Odoo module/add on.
 
 Prerequisites
@@ -24,7 +24,7 @@ Odoo is written in Python and is intended to run on Ubuntu Linux. However you sh
 To run Odoo locally, for exploring the code and developing, you'll need:
 
 1. git or a client like GitHub Desktop or GitKraken for source control.
-2. A Docker Hub account, and you have installed Docker Desktop.
+2. A [Docker Hub account](https://hub.docker.com/signup), and you have installed Docker Desktop.
 3. Visual Studio Code which is free and lets you connect and develop as if you are inside a Docker container (if you have a preferred IDE then skip this step and configure it to your liking)
 
 ## Step 1 PostgreSQL Container Creation
@@ -43,13 +43,15 @@ Now you have a local copy of the repository, go into your terminal:
 
 > docker run -it --rm --name=sta-postgres-dev -e POSTGRES_PASSWORD=mysecretpassword -v postgres13-data:/var/lib/postgresql/data -p 5432:5432 postgres:13
 
-This will take a few minutes to go off and install a Docker image from the Docker Hub and then start up a Docker container (sta-postgres-dev) which has PostgreSQL 13 running in it.
+This command will take a few minutes to go off and install a Docker Image (postgres:13) from the Docker Hub and then start up a Docker Container (sta-postgres-dev) which has PostgreSQL 13 running in it.
 
-This creates a super secure password for your local dev PostgreSQL database:
+The command creates a super secure password for your local dev PostgreSQL database:
 
 > mysecretpassword 
 
 ...so probably not a good idea to use this in production.
+
+The -v postgres13-data:/var/lib/postgresql/data part creates a Docker Volume. What this means in reality is that when we shut our container down the data for our db isn't lost but stored in a Docker Volume.
 
 You can check the command has worked by opening up Docker Desktop and you should have a Postgres Image and in Containers/Apps there should be a running instance of PostgreSQL called sta-postgres-dev postgres:13 PORT: 5432. There is a CLI button which you can use to connect to your instance and execute commands, for example, enter:
 
@@ -100,6 +102,14 @@ To attach to the container for development, click the folder with a plus sign (a
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture3.JPG">
 
 At this point Visual studio Code will automatically install its server utilities in the Odoo home folder and then display the “Welcome” screen. 
-Click on Open Folder then change /home/odoo to **/opt/odoo** and click OK.
+Click on Open Folder then change /home/odoo to **/opt/odoo** and click OK. 
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture4.JPG">
+
+This should then display the code root folder and we now have access to the source code for Odoo and we can write our own custom add_ons/modules.
+
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture5.JPG">
+
+
+
+
