@@ -176,3 +176,7 @@ Replace the contents of launch.json with this:
     ]
 }
 ```
+
+Click on the Run and Debug button in the left hand toolbar and you should see the Odoo option in the Run area of Visual Studio Code. Click the Green triangle and it should launch Odoo!
+
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/PythonLaunch.JPG">
