@@ -26,25 +26,33 @@ To run Odoo locally, for exploring the code and developing, you'll need:
 
 1. git or a client like GitHub Desktop or GitKraken for source control.
 2. A [Docker Hub account](https://hub.docker.com/signup), and you have installed [Docker Desktop](https://www.docker.com/products/docker-desktop).
-3. Visual Studio Code which is free and lets you connect and develop as if you are inside a Docker container (if you have a preferred IDE then skip this step and configure it to your liking)
+3. [Visual Studio Code](https://code.visualstudio.com/download) which is free and lets you connect and develop as if you are inside a Docker Container.
 
 ## Step 1 PostgreSQL Container Creation
 
-Checkout the code from this GitHub repository. To check the code out locally, you'll need access to git. 
+Open Visual Studio Code and click on **Clone Git Repository...**
 
-If you're using git on the command-line the command to clone this repository using SSH is:
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Step1.JPG">
 
-> git clone git@github.com:AquaredWsquared/eleos-dev-env.git
-
-To clone this repository using HTTPS, use:
+Copy and Paste the command below into the drop down list and press Enter :
 
 > git clone https://github.com/AsquaredWsquared/eleos-dev-env.git
 
-Now you have a local copy of the repository, go into your terminal:
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Step2.JPG">
+
+Create a folder of your choice to store the repository in.
+
+Then click on Open in the pop up at the bottom right of the window.
+
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Step3.JPG">
+
+Then make your choice whether you trust me or not.
+
+Now you have a local copy of the repository, we need to open a terminal. Click on Terminal, New Terminal. Then Copy and Paste the command below to create our PostgreSQL Docker Image:
 
 > docker run -it --rm --name=sta-postgres-dev -e POSTGRES_PASSWORD=mysecretpassword -v postgres13-data:/var/lib/postgresql/data -p 5432:5432 postgres:13
 
-This command will take a few minutes to go off and install a Docker Image (postgres:13) from the Docker Hub and then start up a Docker Container (sta-postgres-dev) which has PostgreSQL 13 running in it.
+This docker command will take a few minutes to go off and install a Docker Image (postgres:13) from the Docker Hub and then start up a Docker Container (sta-postgres-dev) which has PostgreSQL 13 running in it.
 
 The command creates a super secure password for your local dev PostgreSQL database:
 
@@ -54,7 +62,15 @@ The command creates a super secure password for your local dev PostgreSQL databa
 
 The -v postgres13-data:/var/lib/postgresql/data part creates a Docker Volume. What this means in reality is that when we shut our container down the data for our db isn't lost but stored in a Docker Volume.
 
-You can check the command has worked by opening up Docker Desktop and you should have a Postgres Image and in Containers/Apps there should be a running instance of PostgreSQL called sta-postgres-dev postgres:13 PORT: 5432. There is a CLI button which you can use to connect to your instance and execute commands, for example, enter:
+You can check the command has worked by opening up Docker Desktop and you should have a Postgres Image:
+
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker1.JPG">
+
+and in Containers/Apps there should be a running instance of PostgreSQL called sta-postgres-dev postgres:13 PORT: 5432. There is a CLI button (I just can't make it show up in my snippet!) which you can use to connect to your instance and execute commands:
+
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker2.JPG">
+
+Copy and Paste the command below into the Docker CLI
 
 > psql -h localhost -p 5432 -U postgres -W
 
@@ -68,7 +84,7 @@ We will need to create a role for Odoo to connect and create a database in Postg
 
 > postgres=# CREATE ROLE odoo CREATEDB LOGIN PASSWORD 'odoo';
 
-We next need to create a database:
+We next need to create a database for Odoo to connect to:
 
 > postgres=# CREATE DATABASE odoo15 OWNER odoo ENCODING UTF8;
 
@@ -76,11 +92,18 @@ We next need to create a database:
 
 We now need to create an Odoo Image and then an Odoo Container to connect to our PostgreSQL Container using the odoo role we created in Step 1.
 
-Using Visual Studio Code we can build a local Docker image with the following command in the terminal:
+Using Visual Studio Code we can build a local Docker image with the following command pasted in the terminal:
 
 > docker build . -t odoo15
 
-This will take a while to build the image the first time (probably best to go and make a cup of coffee while you wait) Once the image is built we need to tell Docker that we want to create a container based on our image. To do this use the following command:
+This will take a while to build the image the first time (probably best to go and make a cup of coffee while you wait) The docker command uses the Dockerfile to build the image. 
+
+Once the build is complete if you look in Docker Desktop you should see the image (Odoo15):
+
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker3.JPG">
+
+
+We need to tell Docker that we want to create a container based on our image. To do this use the following command in the terminal:
 
 > docker run --rm -it --name=sta-odoo-dev -v sta-odoo-data:/opt/odoo/data -v sta-odoo-vscode:/opt/odoo/.vscode -v sta-odoo-custom-addons:/opt/odoo/custom_addons -v sta-odoo-home:/home/odoo -p 8069:8069 --env-file=odoo.env odoo15 bash
 
