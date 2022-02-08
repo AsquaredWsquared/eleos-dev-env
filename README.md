@@ -22,7 +22,7 @@ The process is going to be broken down into three main steps:
 
 Odoo is written in Python and is intended to run on Ubuntu Linux. However you should be able to run Odoo locally on Windows, OS X or Linux using Docker. 
 
-To run Odoo locally to explore the code and develop modules you'll need:
+To follow along you'll need:
 
 1. git or a client like GitHub Desktop or GitKraken for source control.
 2. A [Docker Hub account](https://hub.docker.com/signup), and you have installed [Docker Desktop](https://www.docker.com/products/docker-desktop).
