@@ -108,7 +108,7 @@ We need to tell Docker that we want to create a container based on our image and
 
 > docker run --rm -it -v sta-odoo-data:/opt/odoo/data -p 8069:8069 --env-file=odoo.env odoo15 odoo -d odoo15 -i base --without-demo=all --load-language=en_GB
 
-You should see a “Modules Loaded” message. Now you should be able to access your new Odoo system at http://localhost:8069 and log in using the default
+You should eventually see a “Registry Loaded in xx.xxxs” message after the modules have been loaded into the db. Now you should be able to access your new Odoo system at http://localhost:8069 and log in using the default
 
 > user: admin, password: admin 
 
@@ -187,3 +187,8 @@ Replace the contents of launch.json with this:
 Click on the Run and Debug button in the left hand toolbar and you should see the Odoo option in the Run area of Visual Studio Code. Click the Green triangle and it should launch Odoo!
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/PythonLaunch.JPG">
+
+Now you should be able to access your shiny new dev Odoo system at http://localhost:8069 and log in using the default
+
+> user: admin, password: admin
+
