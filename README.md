@@ -140,3 +140,39 @@ This should then display the code root folder and we now have access to the sour
 We need to first install the Python Extension inside our container. To do this, press the Extensions toolbar button, search for Python, then hit the Install in Container button.
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/PythonExtension.JPG">
+
+Clicking on a Python file should automatically select an interpreter for you, for example:
+
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/PythonInterp1.JPG">
+
+Now we need to create a Launch Configuration to tell Visual Studio Code how to start Odoo.
+To do this, click the Run menu, click the Add Configuration link, then Python File. This will create a new launch.json file in the .vscode folder of your workspace.
+
+Replace the contents of launch.json with this:
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information visit:
+    // https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Odoo",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "program": "${workspaceRoot}/odoo/odoo-bin",
+            "args": [
+                "--db_host=${env:DB_HOST}",
+                "--db_port=${env:DB_PORT}",
+                "--db_user=${env:DB_USER}",
+                "--db_password=${env:DB_PASSWORD}",
+                "--database=odoo15",
+                "--limit-time-real=100000"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
+```
