@@ -104,12 +104,13 @@ Once the build is complete if you look in Docker Desktop you should see the imag
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker3.JPG">
 
-
 We need to tell Docker that we want to create a container based on our image. To do this use the following command in the terminal:
 
 > docker run --rm -it --name=sta-odoo-dev -v sta-odoo-data:/opt/odoo/data -v sta-odoo-vscode:/opt/odoo/.vscode -v sta-odoo-custom-addons:/opt/odoo/custom_addons -v sta-odoo-home:/home/odoo -p 8069:8069 --env-file=odoo.env odoo15 bash
 
 In Docker Desktop you should now have two Docker Images: postgresql and odoo15 and two running Docker Containers: sta-odoo-dev and sta-postgres-dev.
+
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker5.JPG">
 
 ## Step 3 Connect to our "sta-odoo-dev" Container with Visual Studio Code using the "Remote - Containers" extension and do some coding!!
 
