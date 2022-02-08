@@ -4,10 +4,11 @@ Welcome to the Scottish Tech Army Odoo Development environment installation guid
 
 Odoo is an open source Enterprise Resource Planning (ERP) system written in Python which relies on a PostgreSQL backend to store data.
 
-The source code for Odoo can be found here but by the end of the guide you should have a local copy in a Docker Container that you can rummage around in.
-https://github.com/odoo/odoo
+The source code for Odoo can be found [here](https://github.com/odoo/odoo) but by the end of the guide you should have a local copy in a Docker Container that you can rummage around in.
 
-**The installation steps that follow are intended for developers who are new to Odoo, Docker and Python and want a local development environment to play around with Odoo and PostgreSQL.** 
+
+**The installation steps that follow are intended for developers who are new to Odoo, Docker and Python and want a local development environment to play around with Odoo and PostgreSQL.**
+
 
 *If you are already an Odoo/Docker/Python/Git ninja then this guide isn't aimed at you and I've got a couple of questions ;-)*
 
@@ -24,7 +25,7 @@ Odoo is written in Python and is intended to run on Ubuntu Linux. However you sh
 To run Odoo locally, for exploring the code and developing, you'll need:
 
 1. git or a client like GitHub Desktop or GitKraken for source control.
-2. A [Docker Hub account](https://hub.docker.com/signup), and you have installed Docker Desktop.
+2. A [Docker Hub account](https://hub.docker.com/signup), and you have installed [Docker Desktop](https://www.docker.com/products/docker-desktop).
 3. Visual Studio Code which is free and lets you connect and develop as if you are inside a Docker container (if you have a preferred IDE then skip this step and configure it to your liking)
 
 ## Step 1 PostgreSQL Container Creation
