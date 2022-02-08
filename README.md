@@ -228,6 +228,8 @@ To make our new module visible we need to enter debug/developer mode. Paste the 
 
 Then click on **Update Apps List**, **Update** Once the update is complete enter "STA Module" in the Search field and our mighty **STA Module** will appear.
 
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/MightyModule.JPG">
+
 To find out more about Odoo Development go to https://www.odoo.com/documentation/15.0/developer.html
 
 ## Acknowledgement
