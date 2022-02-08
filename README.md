@@ -230,6 +230,6 @@ Then click on **Update Apps List**, **Update** Once the update is complete enter
 
 To find out more about Odoo Development go to https://www.odoo.com/documentation/15.0/developer.html
 
-** Acknowledgement ***
+## Acknowledgement
 
 This readme and Dockerfile came from a series of three [articles](https://medium.com/@dupski/odoo-development-running-postgresql-in-docker-702406520c03) by Russell Briggs. He has very kindly made the source Dockerfile and assorted scripts available on GitHub [here](https://github.com/junariltd/junari-odoo-docker) I've just added a few pictures!!
