@@ -70,7 +70,7 @@ and in Containers/Apps there should be a running instance of PostgreSQL called s
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker2.JPG">
 
-Copy and Paste the command below into the Docker CLI
+Click on the Docker CLI button and Copy and Paste the command below into the Docker CLI:
 
 > psql -h localhost -p 5432 -U postgres -W
 
