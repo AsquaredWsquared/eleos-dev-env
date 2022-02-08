@@ -91,6 +91,15 @@ To use Visual Studio Code Remote Development with docker containers you need to 
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture1.JPG">
 
-Once you have installed the extension, click the “Remote Explorer” toolbar button on the left hand side of your screen.
+Once you have installed the extension, click the “Remote Explorer” toolbar button on the left hand side of your screen. If the containers are still running you should see them listed like below.
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture2.JPG">
+
+To attach to the container for development, click the folder with a plus sign (attach to container) to the right of its name, and a new Visual Studio Code window will be launched. 
+
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture3.JPG">
+
+At this point Visual studio Code will automatically install its server utilities in the Odoo home folder, then display the “Welcome” screen.
+
+
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture4.JPG">
