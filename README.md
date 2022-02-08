@@ -28,7 +28,7 @@ To run Odoo locally, for exploring the code and developing, you'll need:
 2. A [Docker Hub account](https://hub.docker.com/signup), and you have installed [Docker Desktop](https://www.docker.com/products/docker-desktop).
 3. [Visual Studio Code](https://code.visualstudio.com/download) which is free and lets you connect and develop as if you are inside a Docker Container.
 
-## Step 1 PostgreSQL Container Creation
+## Step 1: PostgreSQL Container Creation
 
 Open Visual Studio Code and click on **Clone Git Repository...**
 
@@ -90,7 +90,7 @@ We next need to create a database for Odoo to connect to:
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker4.JPG">
 
-## Step 2 Odoo Container Creation
+## Step 2: Odoo Container Creation
 
 We now need to create an Odoo Image and then an Odoo Container to connect to our PostgreSQL Container using the odoo role we created in Step 1.
 
@@ -115,13 +115,13 @@ You should eventually see a “Registry Loaded in xx.xxxs” message after the m
 When you are finished you can press CTRL+C on your terminal window to stop it.
 
 
-## Step 3 Connect to our "sta-odoo-dev" Container with Visual Studio Code using the "Remote - Containers" extension
+## Step 3: Connect to our "sta-odoo-dev" Container with Visual Studio Code using the "Remote - Containers" extension
 
 You can now start up an Odoo development environment using the following command.
 
 > docker run --rm -it --name=sta-odoo-dev -v sta-odoo-data:/opt/odoo/data -v sta-odoo-vscode:/opt/odoo/.vscode -v sta-odoo-custom-addons:/opt/odoo/custom_addons -v sta-odoo-home:/home/odoo -p 8069:8069 --env-file=odoo.env odoo15 bash
 
-We can now try and hook into our shiny new container (sta-odoo-dev) with Visual Studio Code and break/make stuff.
+We can now try and hook into our shiny new dev container (sta-odoo-dev) with Visual Studio Code and break/make stuff.
 
 To use Visual Studio Code Remote Development with Docker containers you need to install the “Remote - Containers” extension.
 
@@ -191,4 +191,7 @@ Click on the Run and Debug button in the left hand toolbar and you should see th
 Now you should be able to access your shiny new dev Odoo system at http://localhost:8069 and log in using the default
 
 > user: admin, password: admin
+
+However what we really want is to be able to write our own STA modules! Click on the Red square to stop Odoo running.
+
 
