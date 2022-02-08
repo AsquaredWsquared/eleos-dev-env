@@ -112,11 +112,11 @@ In Docker Desktop you should now have two Docker Images: postgresql and odoo15 a
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker5.JPG">
 
-## Step 3 Connect to our "sta-odoo-dev" Container with Visual Studio Code using the "Remote - Containers" extension and do some coding!!
+## Step 3 Connect to our "sta-odoo-dev" Container with Visual Studio Code using the "Remote - Containers" extension
 
 Enough of the scripting shenanigans! We can now try and hook into our shiny new container (sta-odoo-dev) with Visual Studio Code and break/make stuff.
 
-To use Visual Studio Code Remote Development with docker containers you need to install the “Remote - Containers” extension.
+To use Visual Studio Code Remote Development with Docker containers you need to install the “Remote - Containers” extension.
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture1.JPG">
 
@@ -128,7 +128,7 @@ To attach to the container for development, click the folder with a plus sign (a
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture3.JPG">
 
-At this point Visual studio Code will automatically install its server utilities in the Odoo home folder and then display the “Welcome” screen. 
+At this point Visual Studio Code will automatically install its server utilities in the Odoo home folder and then display the “Welcome” screen. 
 Click on Open Folder then change /home/odoo to **/opt/odoo** and click OK. 
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture4.JPG">
@@ -137,6 +137,6 @@ This should then display the code root folder and we now have access to the sour
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture5.JPG">
 
+We need to first install the Python Extension inside our container. To do this, press the Extensions toolbar button, search for Python, then hit the Install in Container button.
 
-
-
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/PythonExtension.JPG">
