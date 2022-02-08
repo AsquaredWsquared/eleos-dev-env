@@ -1,6 +1,6 @@
 # eleos-dev-env
 
-Welcome to the Scottish Tech Army Odoo Development environment installation guide using Docker.
+Welcome to the Scottish Tech Army Odoo Development Environment Installation Guide using Docker.
 
 Odoo is an open source Enterprise Resource Planning (ERP) system written in Python which relies on a PostgreSQL backend to store data.
 
@@ -22,7 +22,7 @@ The process is going to be broken down into three main steps:
 
 Odoo is written in Python and is intended to run on Ubuntu Linux. However you should be able to run Odoo locally on Windows, OS X or Linux using Docker. 
 
-To run Odoo locally, for exploring the code and developing, you'll need:
+To run Odoo locally to explore the code and develop modules you'll need:
 
 1. git or a client like GitHub Desktop or GitKraken for source control.
 2. A [Docker Hub account](https://hub.docker.com/signup), and you have installed [Docker Desktop](https://www.docker.com/products/docker-desktop).
@@ -34,7 +34,7 @@ Open Visual Studio Code and click on **Clone Git Repository...**
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Step1.JPG">
 
-Copy and Paste the command below into the drop down list and press Enter :
+**Copy** and **Paste** the command below into the drop down list and press **Enter**:
 
 > git clone https://github.com/AsquaredWsquared/eleos-dev-env.git
 
@@ -42,13 +42,13 @@ Copy and Paste the command below into the drop down list and press Enter :
 
 Create a folder of your choice to store the repository in.
 
-Then click on Open in the pop up at the bottom right of the window.
+Then click on **Open** in the pop up at the bottom right of the window.
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Step3.JPG">
 
 Then make your choice whether you trust me or not.
 
-Now you have a local copy of the repository, we need to open a terminal. Click on Terminal, New Terminal. Then Copy and Paste the command below to create our PostgreSQL Docker Image:
+Now you have a local copy of the repository, we need to open a terminal. Click on **Terminal**, **New Terminal**. Then **Copy** and **Paste** the command below to create our PostgreSQL Docker Image:
 
 > docker run -it --rm --name=sta-postgres-dev -e POSTGRES_PASSWORD=mysecretpassword -v postgres13-data:/var/lib/postgresql/data -p 5432:5432 postgres:13
 
@@ -66,11 +66,11 @@ You can check the command has worked by opening up Docker Desktop and you should
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker1.JPG">
 
-and in Containers/Apps there should be a running instance of PostgreSQL called sta-postgres-dev postgres:13 PORT: 5432. There is a CLI button (I just can't make it show up in my snippet!) which you can use to connect to your instance and execute commands:
+and in Containers/Apps there should be a running instance of PostgreSQL called sta-postgres-dev postgres:13 PORT: 5432. There is a **CLI** button (I just can't make it show up in my snippet!) which you can use to connect to your instance and execute commands:
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker2.JPG">
 
-Click on the Docker CLI button and Copy and Paste the command below into the Docker CLI:
+Click on the Docker **CLI** button and **Copy** and **Paste** the command below into the Docker CLI:
 
 > psql -h localhost -p 5432 -U postgres -W
 
@@ -112,12 +112,12 @@ You should eventually see a “Registry Loaded in xx.xxxs” message after the m
 
 > user: admin, password: admin 
 
-When you are finished you can press CTRL+C on your terminal window to stop it.
+When you are finished you can press CTRL+C in your terminal window to stop it.
 
 
 ## Step 3: Connect to our "sta-odoo-dev" Container with Visual Studio Code using the "Remote - Containers" extension
 
-You can now start up an Odoo development environment using the following command.
+You can now start up an Odoo development environment using the following command (the command mainly maps the container directories to Docker volumes so we don't lose our data when the container shuts down).
 
 > docker run --rm -it --name=sta-odoo-dev -v sta-odoo-data:/opt/odoo/data -v sta-odoo-vscode:/opt/odoo/.vscode -v sta-odoo-custom-addons:/opt/odoo/custom_addons -v sta-odoo-home:/home/odoo -p 8069:8069 --env-file=odoo.env odoo15 bash
 
@@ -127,7 +127,7 @@ To use Visual Studio Code Remote Development with Docker containers you need to 
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture1.JPG">
 
-Once you have installed the extension, click the “Remote Explorer” toolbar button on the left hand side of your screen. If the containers are still running you should see them listed like below.
+Once you have installed the extension, click the **Remote Explorer** toolbar button on the left hand side of your screen. If the containers are still running you should see them listed like below:
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture2.JPG">
 
@@ -135,8 +135,9 @@ To attach to the container for development, click the folder with a plus sign (a
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture3.JPG">
 
-At this point Visual Studio Code will automatically install its server utilities in the Odoo home folder and then display the “Welcome” screen. 
-Click on Open Folder then change /home/odoo to **/opt/odoo** and click OK. 
+At this point Visual Studio Code will automatically install its server utilities in the /home/odoo/.vscode-server folder and then display the “Welcome” screen.
+
+Click on Open Folder then change /home/odoo to **/opt/odoo** and click **OK**. 
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture4.JPG">
 
@@ -144,7 +145,7 @@ This should then display the code root folder and we now have access to the sour
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture5.JPG">
 
-We need to first install the Python Extension inside our container. To do this, press the Extensions toolbar button, search for Python, then hit the Install in Container button.
+We need to first install the Python Extension inside our container. To do this, press the **Extensions** toolbar button, search for **Python**, then hit the **Install in Container** button.
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/PythonExtension.JPG">
 
@@ -153,9 +154,9 @@ Clicking on a Python file should automatically select an interpreter for you, fo
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/PythonInterp1.JPG">
 
 Now we need to create a Launch Configuration to tell Visual Studio Code how to start Odoo.
-To do this, click the Run menu, click the Add Configuration link, then Python File. This will create a new launch.json file in the .vscode folder of your workspace.
+To do this, click the **Run** menu, click the **Add Configuration** link, then **Python File**. This will create a new **launch.json** file in the .vscode folder of your workspace.
 
-Replace the contents of launch.json with this:
+Replace the contents of **launch.json** with this:
 ```
 {
     // Use IntelliSense to learn about possible attributes.
@@ -184,14 +185,51 @@ Replace the contents of launch.json with this:
 }
 ```
 
-Click on the Run and Debug button in the left hand toolbar and you should see the Odoo option in the Run area of Visual Studio Code. Click the Green triangle and it should launch Odoo!
+Click on the **Run and Debug** button in the left hand toolbar and you should see the Odoo option in the Run area of Visual Studio Code. Click the Green triangle and it should launch Odoo!
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/PythonLaunch.JPG">
 
-Now you should be able to access your shiny new dev Odoo system at http://localhost:8069 and log in using the default
+Now you should be able to access your shiny new dev Odoo system at http://localhost:8069 and log in using the default login credentials.
 
 > user: admin, password: admin
 
-However what we really want is to be able to write our own STA modules! Click on the Red square to stop Odoo running.
+However what we really want is to be able to write our own STA modules! Click on the Red square to stop Odoo running and we can write a skeleton module.
 
+Open up the custom_addons folder and create a new sta_module folder inside it.
+Inside that folder, create two empty files: __manifest__.py and __init__.py (make sure that you have put double underscores)
 
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Module1.JPG">
+
+Open up __manifest__.py and add the below:
+
+```
+{
+    'name': 'STA Module',
+    'version': '1.0.0',
+    'summary': 'Test Module',
+    'author': 'Me',
+    'website': 'https://www.scottishtecharmy.org/',
+    'depends': [
+        'base',
+    ],
+    'data': [
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}
+```
+
+Click on the **Run and Debug** button in the left hand toolbar and you should see the Odoo option in the Run area of Visual Studio Code. Click the Green triangle and it should launch Odoo with our new sta_module in it. Go to http://localhost:8069 and login in with admin/admin
+
+To make our new module visible we need to enter debug/developer mode. Paste the following in your browser:
+
+>http://localhost:8069/web?debug=1#cids=1&menu_id=5&action=37&model=ir.module.module&view_type=kanban
+
+Then click on **Update Apps List**, **Update** Once the update is complete enter "STA Module" in the Search field and our mighty **STA Module** will appear.
+
+To find out more about Odoo Development go to https://www.odoo.com/documentation/15.0/developer.html
+
+** Acknowledgement ***
+
+This readme and Dockerfile came from a series of three [articles](https://medium.com/@dupski/odoo-development-running-postgresql-in-docker-702406520c03) by Russell Briggs. He has very kindly made the source Dockerfile and assorted scripts available on GitHub [here](https://github.com/junariltd/junari-odoo-docker) I've just added a few pictures!!
