@@ -52,6 +52,8 @@ Now you have a local copy of the repository, we need to open a terminal. Click o
 
 > docker run -it --rm --name=sta-postgres-dev -e POSTGRES_PASSWORD=mysecretpassword -v postgres13-data:/var/lib/postgresql/data -p 5432:5432 postgres:13
 
+> docker run --rm -it --name=sta-postgres-dev -e POSTGRES_PASSWORD=mysecretpassword -v sta-odoo-data:/opt/odoo/data postgres13-data:/var/lib/postgresql/data -p 8069:8069 --env-file=odoo.env postgres:13 odoo -d odoo15 -i base --without-demo=all --load-language=en_GB
+
 This docker command will take a few minutes to go off and install a Docker Image (postgres:13) from the Docker Hub and then start up a Docker Container (sta-postgres-dev) which has PostgreSQL 13 running in it.
 
 The command creates a super secure password for your local dev PostgreSQL database:
