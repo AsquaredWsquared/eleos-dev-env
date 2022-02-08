@@ -112,17 +112,16 @@ You should see a “Modules Loaded” message. Now you should be able to access 
 
 > user: admin, password: admin 
 
-When you are finished playing with the system, you can press CTRL+C on your terminal window to stop it.
+When you are finished you can press CTRL+C on your terminal window to stop it.
 
-> docker run --rm -it --name=sta-odoo-dev -v sta-odoo-data:/opt/odoo/data -v sta-odoo-vscode:/opt/odoo/.vscode -v sta-odoo-custom-addons:/opt/odoo/custom_addons -v sta-odoo-home:/home/odoo -p 8069:8069 --env-file=odoo.env odoo15 bash
-
-In Docker Desktop you should now have two Docker Images: postgresql and odoo15 and two running Docker Containers: sta-odoo-dev and sta-postgres-dev.
-
-<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker5.JPG">
 
 ## Step 3 Connect to our "sta-odoo-dev" Container with Visual Studio Code using the "Remote - Containers" extension
 
-Enough of the scripting shenanigans! We can now try and hook into our shiny new container (sta-odoo-dev) with Visual Studio Code and break/make stuff.
+You can now start up an Odoo development environment using the following command.
+
+> docker run --rm -it --name=sta-odoo-dev -v sta-odoo-data:/opt/odoo/data -v sta-odoo-vscode:/opt/odoo/.vscode -v sta-odoo-custom-addons:/opt/odoo/custom_addons -v sta-odoo-home:/home/odoo -p 8069:8069 --env-file=odoo.env odoo15 bash
+
+We can now try and hook into our shiny new container (sta-odoo-dev) with Visual Studio Code and break/make stuff.
 
 To use Visual Studio Code Remote Development with Docker containers you need to install the “Remote - Containers” extension.
 
