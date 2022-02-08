@@ -88,15 +88,17 @@ We next need to create a database for Odoo to connect to:
 
 > postgres=# CREATE DATABASE odoo15 OWNER odoo ENCODING UTF8;
 
+<img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker4.JPG">
+
 ## Step 2 Odoo Container Creation
 
 We now need to create an Odoo Image and then an Odoo Container to connect to our PostgreSQL Container using the odoo role we created in Step 1.
 
-Using Visual Studio Code we can build a local Docker image with the following command pasted in the terminal:
+Using Visual Studio Code we can build a local Docker Image with the following command pasted in the terminal:
 
 > docker build . -t odoo15
 
-This will take a while to build the image the first time (probably best to go and make a cup of coffee while you wait) The docker command uses the Dockerfile to build the image. 
+This will take a while to build the image the first time (probably best to go and make a cup of coffee while you wait) The docker command uses the Dockerfile from the repository to build the image. 
 
 Once the build is complete if you look in Docker Desktop you should see the image (Odoo15):
 
@@ -107,7 +109,7 @@ We need to tell Docker that we want to create a container based on our image. To
 
 > docker run --rm -it --name=sta-odoo-dev -v sta-odoo-data:/opt/odoo/data -v sta-odoo-vscode:/opt/odoo/.vscode -v sta-odoo-custom-addons:/opt/odoo/custom_addons -v sta-odoo-home:/home/odoo -p 8069:8069 --env-file=odoo.env odoo15 bash
 
-In Docker Desktop you should now have two Docker Images: postgresql and odoo15 and two running Docker Containers: sta-odoo-dev and <random_name>. 
+In Docker Desktop you should now have two Docker Images: postgresql and odoo15 and two running Docker Containers: sta-odoo-dev and sta-postgres-dev.
 
 ## Step 3 Connect to our "sta-odoo-dev" Container with Visual Studio Code using the "Remote - Containers" extension and do some coding!!
 
