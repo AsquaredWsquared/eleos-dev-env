@@ -52,8 +52,6 @@ Now you have a local copy of the repository, we need to open a terminal. Click o
 
 > docker run -it --rm --name=sta-postgres-dev -e POSTGRES_PASSWORD=mysecretpassword -v postgres13-data:/var/lib/postgresql/data -p 5432:5432 postgres:13
 
-> docker run --rm -it --name=sta-postgres-dev -e POSTGRES_PASSWORD=mysecretpassword -v sta-odoo-data:/opt/odoo/data postgres13-data:/var/lib/postgresql/data -p 8069:8069 --env-file=odoo.env postgres:13 odoo -d odoo15 -i base --without-demo=all --load-language=en_GB
-
 This docker command will take a few minutes to go off and install a Docker Image (postgres:13) from the Docker Hub and then start up a Docker Container (sta-postgres-dev) which has PostgreSQL 13 running in it.
 
 The command creates a super secure password for your local dev PostgreSQL database:
@@ -106,7 +104,15 @@ Once the build is complete if you look in Docker Desktop you should see the imag
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Docker3.JPG">
 
-We need to tell Docker that we want to create a container based on our image. To do this use the following command in the terminal:
+We need to tell Docker that we want to create a container based on our image and initialise our Odoo15 database. To do this use the following command in the terminal:
+
+> docker run --rm -it -v sta-odoo-data:/opt/odoo/data -p 8069:8069 --env-file=odoo.env odoo15 odoo -d odoo15 -i base --without-demo=all --load-language=en_GB
+
+You should see a “Modules Loaded” message. Now you should be able to access your new Odoo system at http://localhost:8069 and log in using the default
+
+> user: admin, password: admin 
+
+When you are finished playing with the system, you can press CTRL+C on your terminal window to stop it.
 
 > docker run --rm -it --name=sta-odoo-dev -v sta-odoo-data:/opt/odoo/data -v sta-odoo-vscode:/opt/odoo/.vscode -v sta-odoo-custom-addons:/opt/odoo/custom_addons -v sta-odoo-home:/home/odoo -p 8069:8069 --env-file=odoo.env odoo15 bash
 
