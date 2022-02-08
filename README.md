@@ -27,7 +27,7 @@ To run Odoo locally, for exploring the code and developing, you'll need:
 2. A Docker Hub account, and you have installed Docker Desktop.
 3. Visual Studio Code which is free and lets you connect and develop as if you are inside a Docker container (if you have a preferred IDE then skip this step and configure it to your liking)
 
-Step 1 PostgreSQL Container Creation
+## Step 1 PostgreSQL Container Creation
 
 Checkout the code from this GitHub repository. To check the code out locally, you'll need access to git. 
 
@@ -41,17 +41,17 @@ To clone this repository using HTTPS, use:
 
 Now you have a local copy of the repository, go into your terminal:
 
-> docker run -it --rm -e POSTGRES_PASSWORD=mysecretpassword -v postgres13-data:/var/lib/postgresql/data -p 5432:5432 postgres:13
+> docker run -it --rm --name=sta-postgres-dev -e POSTGRES_PASSWORD=mysecretpassword -v postgres13-data:/var/lib/postgresql/data -p 5432:5432 postgres:13
 
-This will take a few minutes to go off and install a Docker image from the Docker Hub and then start up a Docker container which has PostgreSQL 13 running in it.
+This will take a few minutes to go off and install a Docker image from the Docker Hub and then start up a Docker container (sta-postgres-dev) which has PostgreSQL 13 running in it.
 
 This creates a super secure password for your local dev PostgreSQL database:
 
 > mysecretpassword 
 
-so probably not a good idea to use this in production.
+...so probably not a good idea to use this in production.
 
-You can check the command has worked by opening up Docker Desktop and you should have a Postgres Image and in Containers/Apps there should be a running instance of PostgreSQL called <random_name> postgres:13 PORT: 5432. There is a CLI button which you can use to connect to your instance and execute commands, for example, enter:
+You can check the command has worked by opening up Docker Desktop and you should have a Postgres Image and in Containers/Apps there should be a running instance of PostgreSQL called sta-postgres-dev postgres:13 PORT: 5432. There is a CLI button which you can use to connect to your instance and execute commands, for example, enter:
 
 > psql -h localhost -p 5432 -U postgres -W
 
@@ -69,7 +69,7 @@ We next need to create a database:
 
 > postgres=# CREATE DATABASE odoo15 OWNER odoo ENCODING UTF8;
 
-Step 2 Odoo Container creation
+## Step 2 Odoo Container creation
 
 We now need to create an Odoo Image and then an Odoo Container to connect to our PostgreSQL Container using the odoo role we created in Step 1.
 
@@ -83,7 +83,7 @@ This will take a while to build the image the first time (probably best to go an
 
 In Docker Desktop you should now have two Docker Images: postgresql and odoo15 and two running Docker Containers: sta-odoo-dev and <random_name>. 
 
-Step 3 Connect to our sta-odoo-dev Container with Visual Studio Code remote extension and do some coding!!
+## Step 3 Connect to our sta-odoo-dev Container with Visual Studio Code remote extension and do some coding!!
 
 Enough of the scripting shenanigans! We can now try and hook into our shiny new container with Visual Studio Code and break stuff.
 
