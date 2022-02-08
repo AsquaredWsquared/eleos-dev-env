@@ -99,7 +99,7 @@ To attach to the container for development, click the folder with a plus sign (a
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture3.JPG">
 
-At this point Visual studio Code will automatically install its server utilities in the Odoo home folder, then display the “Welcome” screen. Click on Open Folder
-
+At this point Visual studio Code will automatically install its server utilities in the Odoo home folder and then display the “Welcome” screen. 
+Click on Open Folder then change /home/odoo to **/opt/odoo** and click OK.
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Capture4.JPG">
