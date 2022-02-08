@@ -18,7 +18,7 @@ The process is going to be broken down into three main steps:
 2. Create a separate local Odoo Docker Container from a Docker Image that has the Odoo source code in it.
 3. Connect to the container we created in step 2 using Visual Studio Code and create our first custom Odoo module/add on.
 
-Prerequisites
+### Prerequisites
 
 Odoo is written in Python and is intended to run on Ubuntu Linux. However you should be able to run Odoo locally on Windows, OS X or Linux using Docker. 
 
