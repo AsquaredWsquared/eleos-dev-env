@@ -200,7 +200,7 @@ Inside that folder, create two empty files: \_\_manifest\_\_.py and \_\_init\_\_
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Module1.JPG">
 
-Open up __manifest__.py and add the below:
+Open up \_\_manifest\_\_.py and add the below:
 
 ```
 {
