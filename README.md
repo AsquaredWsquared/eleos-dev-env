@@ -201,11 +201,11 @@ Now you should be able to access your shiny new dev Odoo system at http://localh
 However what we really want is to be able to write our own STA modules! Click on the Red square to stop Odoo running and we can write a skeleton module.
 
 Open up the custom_addons folder and create a new sta_module folder inside it.
-Inside that folder, create two empty files: __manifest__.py and __init__.py (make sure that you have put double underscores)
+Inside that folder, create two empty files: \_\_manifest\_\_.py and \_\_init\_\_.py (make sure that you have put double underscores)
 
 <img src="https://github.com/AsquaredWsquared/eleos-dev-env/blob/main/images/Module1.JPG">
 
-Open up __manifest__.py and add the below:
+Open up \_\_manifest\_\_.py and add the below:
 
 ```
 {
