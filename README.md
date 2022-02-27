@@ -74,6 +74,11 @@ Click on the Docker **CLI** button and **Copy** and **Paste** the command below 
 
 > psql -h localhost -p 5432 -U postgres -W
 
+Or if you like the command line:
+
+> docker exec -it sta-postgres-dev bash
+> psql -h localhost -p 5432 -U postgres -W
+
 You will then be prompted to enter your password: mysecretpassword and given a postgres prompt where you can execute commands.
 
 > postgres=#
